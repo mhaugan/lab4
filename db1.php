@@ -6,7 +6,7 @@
 <?php
 //  Viser alle poster ved hjelp av fetch_assoc()
 
-    require_once ('auth.php');
+    require_once('auth.php');
     $resultat = $db->query("SELECT * FROM studenter");
     echo "<table border=1>\n";
     echo "<tr><th>Navn</th><th>Klasse</th></tr>\n";

@@ -6,8 +6,8 @@
 <?php  
 //  Viser alle poster ved hjelp av fetch_object - navn er hyperlenke
 
-    require_once ('auth.php');
-    require_once ('student.class.php'); 
+    require_once('auth.php');
+    require_once('Student.class.php');
     $resultat = $db->query("SELECT * FROM studenter");
 
     while ($student = $resultat->fetchObject('Student') )

@@ -1,5 +1,5 @@
 <?php
-class student {
+class Student {
     private $id;
     private $etternavn;
     private $fornavn;
@@ -19,7 +19,7 @@ class student {
     function hentMobil() {
         return $this->mobil;
     }
-    function hentKlasse() {
+    function hentKlasseNavn() {
         return $this->klasse;
     }
     function hentEpost() {
