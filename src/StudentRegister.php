@@ -31,4 +31,17 @@ else{
         print("<a href=" . $_SERVER['PHP_SELF'] . "?id=" . $student->hentId() . ">". $student->hentNavn() .  "</a><br/>\n");
     }
 }
+if(isset($_GET['btn_add'])){
 
+    $nyStudent = $studReg->leggTilStudent($student);
+
+    $etternavn = htmlentities($_GET['etternavn']);
+    $fornavn = htmlentities($_GET['fornavn']);
+    $klasse = htmlentities($_GET['klasse']);
+    $mobil = htmlentities($_GET['mobil']);
+    $www = htmlentities($_GET['www']);
+    $epost = htmlentities($_GET['epost']);
+
+
+    print("AAAAAAAAAAAAAA");
+}

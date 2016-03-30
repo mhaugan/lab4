@@ -15,6 +15,9 @@
             <li>
                 <a href="../src/StudentRegister.php">Main Page</a>
             </li>
+            <li>
+                <a href="../src/updateStudent.php">Update student</a>
+            </li>
         </ul>
     </nav>
 </header>

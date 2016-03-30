@@ -2,6 +2,7 @@
 
 class StudentRegister implements StudentInterface
 {
+
     private $db;
 
     public function __construct(PDO $db)
@@ -35,31 +36,43 @@ class StudentRegister implements StudentInterface
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
 
-            if(!$studentKiller = $stmt->fetchObject('Student')) {
-                throw new InvalidArgumentException('No student with id: ' + $id);
+            if(!$student = $stmt->fetchObject('Student')) {
+                throw new InvalidArgumentException('No student with id: ' . $id);
             }
             else
-                return $studentKiller;
+                return $student;
         }
         catch (InvalidArgumentException $e) {
             print $e->getMessage() . PHP_EOL;
         }
-        return $studentKiller;
+        return $student;
     }
 
-    public function leggTilStudent(Student $student) : int
-    {
-/*
-        try {
-            $stmt = $this->db->prepare("INSERT INTO `studenter` (`id`, `etternavn`, `fornavn`, `klasse`, `mobil`, `www`, `epost`, `opprettet`) VALUES (NULL, 'dog', 'meit', '1STA', '90090900', 'www.vg.no', 'meit@dog.com', '2016-03-14 00:00:00');");
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->execute();
-        }
-        catch (Exception $e){
-            print $e->getMessage() . PHP_EOL;
-        }*/
-        // TODO: Implement leggTilStudent() method.
-        //INSERT INTO `studenter` (`id`, `etternavn`, `fornavn`, `klasse`, `mobil`, `www`, `epost`, `opprettet`) VALUES (NULL, 'dog', 'meit', '1STA', '90090900', 'www.vg.no', 'meit@dog.com', '2016-03-14 00:00:00');
 
+    public function  leggTilStudent(student $student) : int
+    {
+
+        $id = 100;
+        try {
+            $stmt = $this->db->prepare("INSERT INTO `studenter` (`id`, `etternavn`, `fornavn`, `klasse`, `mobil`, `www`, `epost`, `opprettet`) VALUES (NULL, :etternavn, :fornavn, :klasse, :mobil, :www, :epost, NULL)");
+
+            $stmt->bindParam(':etternavn', $etternavn);
+            $stmt->bindParam(':fornavn', $fornavn);
+            $stmt->bindParam(':klasse', $klasse);
+            $stmt->bindParam(':mobil', $mobil);
+            $stmt->bindParam(':www', $www);
+            $stmt->bindParam(':epost', $epost);
+            $stmt->execute();
+
+            if(!$id = $stmt->fetchObject('Student')){
+                throw new InvalidArgumentException('Student not created');
+            }
+            else
+                return $id;
+
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        return $id;
     }
 }
