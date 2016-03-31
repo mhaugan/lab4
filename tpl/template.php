@@ -10,13 +10,14 @@
     <nav class="menu">
         <ul>
             <li>
-                <a href="../src/AddStudent.php">Add student</a>
+                <a href="../src/StudentRegister.php">Forside</a>
             </li>
             <li>
-                <a href="../src/StudentRegister.php">Main Page</a>
+                <a href="../src/AddStudent.php">Legg til student</a>
+
             </li>
             <li>
-                <a href="../src/updateStudent.php">Update student</a>
+                <a href="../src/updateStudent.php">Opdater student</a>
             </li>
         </ul>
     </nav>

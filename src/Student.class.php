@@ -1,5 +1,6 @@
 <?php
 class student {
+
     private $id;
     private $etternavn;
     private $fornavn;
@@ -27,6 +28,49 @@ class student {
     }
     function hentUrl() {
         return$this->www;
+    }
+
+    function hentEtternavn() {
+        return $this->etternavn;
+    }
+
+    function  hentFornavn(){
+        return $this->fornavn;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function setEtternavn($etternavn)
+    {
+        $this->etternavn = $etternavn;
+    }
+
+    public function setFornavn($fornavn)
+    {
+        $this->fornavn = $fornavn;
+    }
+
+    public function setKlasse($klasse)
+    {
+        $this->klasse = $klasse;
+    }
+
+    public function setMobil($mobil)
+    {
+        $this->mobil = $mobil;
+    }
+
+    public function setWww($www)
+    {
+        $this->www = $www;
+    }
+
+    public function setEpost($epost)
+    {
+        $this->epost = $epost;
     }
 }
 
